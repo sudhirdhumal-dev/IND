@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Indus Novateur</title>
+
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(to right, #e3f2fd, #ffffff);
+    }
+
+    header {
+      background: #0d47a1;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      animation: slideDown 1.5s ease;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
+    }
+
+    .marquee {
+      background: #bbdefb;
+      padding: 8px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .marquee span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: moveText 12s linear infinite;
+      font-weight: bold;
+      color: #0d47a1;
+    }
+
+    @keyframes moveText {
+      from { transform: translateX(0); }
+      to { transform: translateX(-100%); }
+    }
+
+    .container {
+      padding: 30px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #0d47a1;
+    }
+
+    table {
+      margin: auto;
+      margin-top: 20px;
+      border-collapse: collapse;
+      width: 80%;
+      background: white;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    th {
+      background: #1976d2;
+      color: white;
+      padding: 12px;
+    }
+
+    td {
+      padding: 10px;
+    }
+
+    tr:nth-child(even) {
+      background: #f5f5f5;
+    }
+
+    tr:hover {
+      background: #e3f2fd;
+    }
+
+    a {
+      color: #0d47a1;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      background: #0d47a1;
+      color: white;
+      font-size: 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #1565c0;
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: 40px;
+      background: #0d47a1;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Indus Novateur</h1>
+  <p>Client Requirements Portal</p>
+</header>
+
+<div class="marquee">
+  <span>Welcome to Indus Novateur – Client Requirements Management System</span>
+</div>
+
+<div class="container">
+
+  <h2>Client Requirements</h2>
+
+  <table id="requirementsTable">
+    <tr>
+      <th>Requirement Area</th>
+      <th>Google Sheet Link</th>
+    </tr>
+    <tr>
+      <td>Production Planning, Quality Management & Plant Maintenance</td>
+      <td>
+        <a href="https://docs.google.com/spreadsheets/d/1h9GoP4lHGuBTmKC_AX-TyOFHXKm7uacxIWfJmf1D6I4/edit?usp=sharing" target="_blank">
+          PP, QM & PM
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>Material Management & Sales Distribution</td>
+      <td><a href="https://docs.google.com" target="_blank">MM & SD</a></td>
+    </tr>
+    <tr>
+      <td>Resolved Requirements for Production Planning</td>
+      <td><a href="https://docs.google.com" target="_blank">PP</a></td>
+    </tr>
+  </table>
+
+  <button onclick="addRow()">➕ Add New Requirement</button>
+
+</div>
+
+<footer>
+  © 2026 Indus Novateur | All Rights Reserved
+</footer>
+
+<script>
+  function addRow() {
+    var table = document.getElementById("requirementsTable");
+    var row = table.insertRow(-1);
+
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+
+    var area = prompt("Enter Requirement Area:");
+    var link = prompt("Enter Google Sheet Link:");
+
+    if(area && link){
+      cell1.innerHTML = area;
+      cell2.innerHTML = '<a href="' + link + '" target="_blank">Open Sheet</a>';
+    } else {
+      alert("Please enter both values!");
+    }
+  }
+</script>
+
+</body>
+</html>
