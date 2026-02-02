@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Indus Novateur</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+
+    h1 {
+      color: darkblue;
+    }
+
+    /* Marquee */
+    .marquee {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .marquee span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: moveRight 10s linear infinite;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    @keyframes moveRight {
+      from { transform: translateX(-100%); }
+      to { transform: translateX(0%); }
+    }
+
+    table {
+      margin-top: 20px;
+      border-collapse: collapse;
+      width: 70%;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    a {
+      color: darkgreen;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 8px 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Marquee -->
+  <div class="marquee">
+    <span>Welcome to Indus Novateur - Client Requirements Portal</span>
+  </div>
+
+  <h1>Indus Novateur</h1>
+
+  <!-- Hyperlink Section -->
+  <div>
+    <a href="#clientTable">Go to Client Requirements</a>
+  </div>
+
+  <!-- Client Requirements -->
+  <h2 id="clientTable">Client Requirements</h2>
+
+  <table id="requirementsTable">
+    <tr>
+      <th>Requirement Area</th>
+      <th>Google Sheet Link</th>
+    </tr>
+    <tr>
+      <td>Production Planning, Quality Management & Plant Maintainence </td>
+      <td><a href=https://docs.google.com/spreadsheets/d/1h9GoP4lHGuBTmKC_AX-TyOFHXKm7uacxIWfJmf1D6I4/edit?usp=sharing>PP, QM & PM </a></td>
+    </tr>
+    <tr>
+      <td>Material Management & Sales Distribution</td>
+      <td><a href="https://docs.google.com" target="_blank">MM & SD</a></td>
+    </tr>
+    <tr>
+      <td>Plant Maintenance</td>
+      <td><a href="https://docs.google.com" target="_blank">PM</a></td>
+    </tr>
+  </table>
+
+  <button onclick="addRow()">Add New Requirement</button>
+
+  <script>
+    function addRow() {
+      var table = document.getElementById("requirementsTable");
+      var row = table.insertRow(-1);
+
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+
+      var area = prompt("Enter Requirement Area:");
+      var link = prompt("Enter Google Sheet Link:");
+
+      cell1.innerHTML = area;
+      cell2.innerHTML = '<a href="' + link + '" target="_blank">Open Sheet</a>';
+    }
+  </script>
+
+</body>
+</html>
